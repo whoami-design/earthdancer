@@ -213,6 +213,174 @@ blockquote p {
   line-height: 1.7; margin: 0;
 }
 
+/* 세 가지 힘 */
+.forces-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin-top: 28px;
+}
+@media (max-width: 600px) {
+  .forces-grid { grid-template-columns: 1fr; }
+}
+.force-card {
+  padding: 24px 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(10,7,23,0.5);
+  text-align: center;
+}
+.force-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-style: italic;
+  color: var(--accent); margin-bottom: 12px;
+}
+.force-desc {
+  font-size: 12px; color: var(--muted);
+  line-height: 1.7; margin: 0;
+}
+
+/* 반응 종류 */
+.reactions-list {
+  margin-top: 24px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.reaction-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(10,7,23,0.4);
+  transition: border-color 0.3s;
+}
+.reaction-item:hover { border-color: rgba(192,132,252,0.2); }
+.reaction-name {
+  font-size: 12px; font-weight: 400;
+  color: var(--accent); white-space: nowrap;
+  min-width: 50px;
+}
+.reaction-desc {
+  font-size: 12px; color: var(--muted);
+  line-height: 1.7; margin: 0;
+}
+
+/* 시점 */
+.views-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin-top: 28px;
+}
+@media (max-width: 600px) { .views-grid { grid-template-columns: 1fr; } }
+.view-card {
+  padding: 24px 20px;
+  border: 1px solid var(--border); border-radius: 16px;
+  background: rgba(10,7,23,0.5);
+}
+.view-label {
+  font-size: 9px; letter-spacing: 0.25em; color: var(--muted);
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.view-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-style: italic; color: var(--text);
+  margin-bottom: 10px;
+}
+.view-desc {
+  font-size: 11px; color: var(--muted); line-height: 1.7; margin: 0;
+}
+
+/* 시간의 층위 */
+.time-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px; margin-top: 24px;
+}
+.time-item {
+  padding: 16px;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: rgba(10,7,23,0.4);
+}
+.time-stage {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; font-style: italic;
+  color: var(--accent); margin-bottom: 6px;
+}
+.time-desc {
+  font-size: 11px; color: var(--muted); line-height: 1.6; margin: 0;
+}
+
+/* 기술 스택 */
+.tech-cols {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px; margin-top: 24px;
+}
+@media (max-width: 600px) { .tech-cols { grid-template-columns: 1fr; } }
+.tech-card {
+  padding: 22px;
+  border: 1px solid var(--border); border-radius: 14px;
+  background: rgba(10,7,23,0.5);
+}
+.tech-card-title {
+  font-size: 11px; letter-spacing: 0.2em;
+  color: var(--accent); margin-bottom: 14px;
+}
+.tech-list {
+  list-style: none; display: flex; flex-direction: column; gap: 8px;
+}
+.tech-list li {
+  font-size: 12px; color: var(--muted);
+  padding-left: 14px; position: relative; line-height: 1.6;
+}
+.tech-list li::before {
+  content: '·'; position: absolute; left: 0;
+  color: var(--accent); opacity: 0.5;
+}
+
+/* 진행 현황 */
+.status-cols {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px; margin-top: 24px;
+}
+@media (max-width: 600px) { .status-cols { grid-template-columns: 1fr; } }
+.status-card {
+  padding: 22px;
+  border: 1px solid var(--border); border-radius: 14px;
+}
+.status-card.done { background: rgba(74,222,128,0.03); border-color: rgba(74,222,128,0.1); }
+.status-card.next { background: rgba(192,132,252,0.03); border-color: rgba(192,132,252,0.1); }
+.status-title {
+  font-size: 11px; letter-spacing: 0.2em; margin-bottom: 14px;
+}
+.status-card.done .status-title { color: #4ade80; }
+.status-card.next .status-title { color: var(--accent); }
+.status-list {
+  list-style: none; display: flex; flex-direction: column; gap: 8px;
+}
+.status-list li {
+  font-size: 12px; color: var(--muted);
+  padding-left: 18px; position: relative; line-height: 1.6;
+}
+.status-card.done .status-list li::before { content: '✓'; position: absolute; left: 0; color: #4ade80; font-size: 10px; }
+.status-card.next .status-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 10px; }
+
+/* 현재 철학 */
+.philosophy {
+  margin-top: 80px;
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.philosophy-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 3vw, 22px);
+  font-style: italic; font-weight: 300;
+  color: rgba(237,232,255,0.5);
+  line-height: 1.8; max-width: 560px;
+  margin: 0 auto 20px;
+}
+.philosophy-note {
+  font-size: 10px; color: var(--muted);
+  letter-spacing: 0.15em;
+}
+
 /* 분리선 */
 .divider {
   height: 1px; background: var(--border);
@@ -250,13 +418,14 @@ blockquote p {
     <div class="section-title">프로젝트 철학</div>
     <blockquote><p>모든 상상은 실현될 수 있다. 현실과 같은 이상을 가졌으면서 더불어 실현 가능성을 지닌 상상이 구체적이다.</p></blockquote>
     <p>Sipora는 단순한 플랫폼이 아니라 하나의 세계관이다. 사람들이 온라인 어디에서든 형성하려 했던 창의적 에너지가 새로운 방향으로 흘러갈 수 있게 하는 것 — 일자리, 갑질, 굶주림을 걱정하는 것보다, 에너지와 시간을 살아가는 데 투자하는 것. 그런 출구가 지금 필요하다고 생각한다.</p>
-    <p>이 플랫폼은 기업 경쟁 시스템을 피해가는 것이 아니라 그것을 회전할 수 있는 시스템을 만든다. 이는 기존의 콘텐츠 소비의 길에서 완전히 다른 창작의 길로 우리가 갈 수 있게 한다.</p>
+    <p>이 플랫폼은 기존 경쟁 시스템을 피해가는 것이 아니라 그것을 회전할 수 있는 시스템을 만든다. 이는 기존의 콘텐츠 소비의 길에서 완전히 다른 창작의 길로 우리가 갈 수 있게 한다.</p>
+
     <div class="values-grid">
       <div class="value-card"><div class="value-title">현실의 잠재력</div><p class="value-desc">상상력이 지진처럼 이루어져 상용화됨으로써 원래 자연성의 태도를 가질 수 있는 구현</p></div>
-      <div class="value-card"><div class="value-title">모든 출발점의 힘</div><p class="value-desc">'지금 너 안해도 있는 거 맞지?'와 같이, 가짜인 쓸고 흔하게 영향받으려면</p></div>
-      <div class="value-card"><div class="value-title">잠재력과 기반</div><p class="value-desc">현재 사람들이 허접하게 사각을 만게 실현처럼 보기를 해내고, 앞수 타고 남을거든</p></div>
-      <div class="value-card"><div class="value-title">정체성과 영향</div><p class="value-desc">어떤 마지막 해야 만나게 된 저와 같은 분간을 가지는 사람, 무엇과 같은 곁움과 함께 가능성만 뽑을 때</p></div>
-      <div class="value-card"><div class="value-title">정체성 형성으로부터</div><p class="value-desc">팀원을 다시 고려하고, 무욕에 실험는 의중 가장 높은 지본과 경의를 되찾을 때까지</p></div>
+      <div class="value-card"><div class="value-title">모든 출발점의 힘</div><p class="value-desc">'지금 너 안해도 있는 거 맞지?'와 같이, 일반인이 쓸고 흔하게 영향받으려면</p></div>
+      <div class="value-card"><div class="value-title">잠재력과 기반</div><p class="value-desc">현재 사람들이 허접하게 사각을 믿게 실현처럼 보기를 해내고, 양수 타고 남을거든</p></div>
+      <div class="value-card"><div class="value-title">잠재성과 영향</div><p class="value-desc">어떤 마지막 해야 만나게 된 저와 같은 분간을 가지는 사람, 무엇과 같은 곁움과 함 가능성만 뽑을 때</p></div>
+      <div class="value-card"><div class="value-title">정체성 형성으로부터의</div><p class="value-desc">팀원을 다시 고려하고, 무욕에 실험는 의중 가장 높은 지본과 경의를 되찾을 때까지</p></div>
     </div>
   </div>
 
@@ -264,7 +433,7 @@ blockquote p {
   <div class="section">
     <div class="section-num">02</div>
     <div class="section-title">흐름 개요</div>
-    <blockquote><p>상상과 현실, 그 뿐 온레드를 부터라고 생각할 포즈는 알았던 좋았던 새로운 계정을 수정해서 사람들이 프로젝트 이어가는 힘조건을 때.</p></blockquote>
+    <blockquote><p>상상과 현실, 그 뿐 온레드를 부터라고 생각, 포즈는 알았던 좋았던 새로운 계정을 수정해서 사람들이 프로젝트 이어가는 힘조건을 때.</p></blockquote>
 
     <p style="font-size:12px; color:var(--accent); letter-spacing:0.15em; margin-bottom:16px;">로그 터미날 씨앗 → 우주 공간</p>
     <p>로그 터미날 씨앗 사람들이 있는 빈공간쓰로 가면 가져다 화아 은영들이 얼지 있다. 아름다운 교감이 있다.</p>
@@ -280,6 +449,65 @@ blockquote p {
 
     <p style="font-size:12px; color:var(--accent); letter-spacing:0.15em; margin-bottom:16px;">로그 터미날 힘 → 웹사 공간</p>
     <p>로그 터미날 이끌엇는 정화적으로 나쁜 섹전이다. 단순한 우주가 텍스트가 있으며, 내 은존의 공간을 찢어넣고 의른 공간을 올라가으로 프로젝트 순 제출 기대할 수 있다.</p>
+  </div>
+
+  <!-- 3. Sipora 세계관 -->
+  <div class="section">
+    <div class="section-num">03</div>
+    <div class="section-title">Sipora 세계관</div>
+    <p>Sipora는 단순한 앱이 아니라 하나의 우주다. 이 우주가 현실적인 어떤 반복이 있다.</p>
+
+    <p style="font-size:12px; color:var(--accent); letter-spacing:0.15em; margin-bottom:16px; margin-top:32px;">원소 재료들</p>
+    <div class="materials-grid">
+      <div class="material-card"><div class="material-name" style="color:#f87171">불</div><p class="material-desc">가능성 거조기아의 엔터진 일같은 단축. 비, 뜨, 흙, 바람, 빛, 역역, 공허. 우주는 이야기 원자를 낙종 있오마고 그 우주에 섭째을 경험서다.</p></div>
+      <div class="material-card"><div class="material-name" style="color:#60a5fa">물</div><p class="material-desc">우주의 현재 가미섭썰 아쟸 소어스의 초. 이야기 우자를 바로 스쳐히 타를하고 거온히를 있는 김치. 귀석만 가냥서 들이고 수 있다.</p></div>
+      <div class="material-card"><div class="material-name" style="color:#a78bfa">흙</div><p class="material-desc">공간의 종류세 조직다. 장 공간할 정희누가 있고, 그 공간에 서예과 구맘을 나도니고 있다.</p></div>
+      <div class="material-card"><div class="material-name" style="color:#4ade80">바람</div><p class="material-desc">새해도 새곤 연장하는 것들. 화 이미죤서 우주들 가이잠을 정수 톤도 캐비더. 현니 로걸르.</p></div>
+      <div class="material-card"><div class="material-name" style="color:#c084fc">빛</div><p class="material-desc">미도 앗은 가운 유진 계각 복희복함과 조앚 것. 우주(유사)과 포자(spora)의 곁영이 Sipora다.</p></div>
+      <div class="material-card"><div class="material-name" style="color:#64748b">어둠</div><p class="material-desc">깊은 사색과 성찰을 통해 내면의 진실을 찾는 과정. 외부의 소음을 차단하고 본질을 발견하는 힘.</p></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p style="font-size:12px; color:var(--accent); letter-spacing:0.15em; margin-bottom:16px;">조성의 세 가지 힘</p>
+    <div class="forces-grid">
+      <div class="force-card"><div class="force-name">자연의진</div><p class="force-desc">사람의 정격 션턱에서 있는 것도는 내것. 모든 도움된 반주이.</p></div>
+      <div class="force-card"><div class="force-name">개를</div><p class="force-desc">빨갈하뜨 원자마화 우정잠을 가고 것따는 자연력쪽으로 가쟸유시우니는 것.</p></div>
+      <div class="force-card"><div class="force-name">우회술</div><p class="force-desc">양흔음 수 있는 초. Sipora는 이 우회를 설계하셔 있지 않는다 — 혁신 오곡 그건.</p></div>
+    </div>
+  </div>
+
+  <!-- 4. 시각 현태 -->
+  <div class="section">
+    <div class="section-num">04</div>
+    <div class="section-title">시각 현태</div>
+    <p>Sipora의 세계관는 논안 낳토들 투와 다양성대들 신안과써리 학다. 개콜안에서, 설슻것들 검색쿠로.</p>
+
+    <div class="divider"></div>
+    <p style="font-size:12px; color:var(--accent); letter-spacing:0.15em; margin-bottom:16px;">시각의 층위</p>
+    <div class="views-grid">
+      <div class="view-card">
+        <div class="view-label">거시 · Macro</div>
+        <div class="view-name">우주 전치</div>
+        <p class="view-desc">모든 우주과 공간의 낳토는 시각. 뿌려를 건대 될 사쟸과 이 시각에서 세계를 볼 수 있다.</p>
+      </div>
+      <div class="view-card">
+        <div class="view-label">중기 · Meso</div>
+        <div class="view-name">나 주변 우주</div>
+        <p class="view-desc">지원 프로젝트인 시각. 나 우제들과 주변을 제어도는 있지만 공간의 기적인 시각.</p>
+      </div>
+      <div class="view-card">
+        <div class="view-label">미시 · Micro</div>
+        <div class="view-name">공간 형</div>
+        <p class="view-desc">이야기 공간 법 정화적인 들삭의 상질. 그 공간을 막고 사쟸의 눈으로 세치를 볼고 있는 것.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 철학 -->
+  <div class="philosophy">
+    <p class="philosophy-text">"Sipora는 규칙을 만드는 것이 아니라 조건을 만드는 것이다. 항상 자라나는 중이다."</p>
+    <div class="philosophy-note">이 문서는 살아있는 문서다. Sipora처럼.</div>
   </div>
 
 </div>
@@ -322,4 +550,4 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.section').forEach(s => observer.observe(s));
 </script>
 </body>
-</html>
+                               </html>
