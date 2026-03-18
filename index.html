@@ -136,6 +136,89 @@ blockquote p {
   line-height: 1.7;
 }
 
+/* 핵심 가치 리스트 */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px; margin-top: 28px;
+}
+.value-card {
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(124,58,237,0.04);
+  transition: border-color 0.3s, background 0.3s;
+}
+.value-card:hover {
+  border-color: rgba(192,132,252,0.25);
+  background: rgba(124,58,237,0.08);
+}
+.value-title {
+  font-size: 12px; font-weight: 400;
+  color: var(--accent); margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+.value-desc {
+  font-size: 12px; color: var(--muted);
+  line-height: 1.7; margin: 0;
+}
+
+/* 원소 재료 */
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px; margin-top: 28px;
+}
+.material-card {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(10,7,23,0.6);
+  transition: all 0.3s;
+}
+.material-card:hover {
+  border-color: rgba(192,132,252,0.2);
+  transform: translateY(-2px);
+}
+.material-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 300;
+  margin-bottom: 8px;
+}
+.material-desc {
+  font-size: 11px; color: var(--muted);
+  line-height: 1.7; margin: 0;
+}
+
+/* 플로우 단계 */
+.flow-list {
+  margin-top: 24px;
+  display: flex; flex-direction: column; gap: 0;
+}
+.flow-item {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(167,139,250,0.06);
+}
+.flow-num {
+  width: 24px; height: 24px; flex-shrink: 0;
+  border: 1px solid rgba(192,132,252,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: var(--accent);
+  margin-top: 2px;
+}
+.flow-text {
+  font-size: 13px; color: rgba(237,232,255,0.7);
+  line-height: 1.7; margin: 0;
+}
+
+/* 분리선 */
+.divider {
+  height: 1px; background: var(--border);
+  margin: 40px 0;
+}
+
 @media (max-width: 600px) {
   .container { padding: 100px 24px 80px; }
   nav { padding: 16px 24px; }
@@ -152,6 +235,8 @@ blockquote p {
 </nav>
 
 <div class="container">
+
+  <!-- 커버 -->
   <div class="cover">
     <div class="cover-eyebrow">우주 + 포자</div>
     <div class="cover-title">SIPORA</div>
@@ -159,17 +244,42 @@ blockquote p {
     <div class="cover-meta">Product Design Document · v0.1 · 2025</div>
   </div>
 
+  <!-- 1. 프로젝트 철학 -->
   <div class="section">
     <div class="section-num">01</div>
     <div class="section-title">프로젝트 철학</div>
     <blockquote><p>모든 상상은 실현될 수 있다. 현실과 같은 이상을 가졌으면서 더불어 실현 가능성을 지닌 상상이 구체적이다.</p></blockquote>
     <p>Sipora는 단순한 플랫폼이 아니라 하나의 세계관이다. 사람들이 온라인 어디에서든 형성하려 했던 창의적 에너지가 새로운 방향으로 흘러갈 수 있게 하는 것 — 일자리, 갑질, 굶주림을 걱정하는 것보다, 에너지와 시간을 살아가는 데 투자하는 것. 그런 출구가 지금 필요하다고 생각한다.</p>
+    <p>이 플랫폼은 기업 경쟁 시스템을 피해가는 것이 아니라 그것을 회전할 수 있는 시스템을 만든다. 이는 기존의 콘텐츠 소비의 길에서 완전히 다른 창작의 길로 우리가 갈 수 있게 한다.</p>
+    <div class="values-grid">
+      <div class="value-card"><div class="value-title">현실의 잠재력</div><p class="value-desc">상상력이 지진처럼 이루어져 상용화됨으로써 원래 자연성의 태도를 가질 수 있는 구현</p></div>
+      <div class="value-card"><div class="value-title">모든 출발점의 힘</div><p class="value-desc">'지금 너 안해도 있는 거 맞지?'와 같이, 가짜인 쓸고 흔하게 영향받으려면</p></div>
+      <div class="value-card"><div class="value-title">잠재력과 기반</div><p class="value-desc">현재 사람들이 허접하게 사각을 만게 실현처럼 보기를 해내고, 앞수 타고 남을거든</p></div>
+      <div class="value-card"><div class="value-title">정체성과 영향</div><p class="value-desc">어떤 마지막 해야 만나게 된 저와 같은 분간을 가지는 사람, 무엇과 같은 곁움과 함께 가능성만 뽑을 때</p></div>
+      <div class="value-card"><div class="value-title">정체성 형성으로부터</div><p class="value-desc">팀원을 다시 고려하고, 무욕에 실험는 의중 가장 높은 지본과 경의를 되찾을 때까지</p></div>
+    </div>
   </div>
 
+  <!-- 2. 흐름 개요 -->
   <div class="section">
     <div class="section-num">02</div>
     <div class="section-title">흐름 개요</div>
-    <p>사용자가 아이디어를 입력하고 우주로 떠나보내는 과정에서 자연스럽게 커뮤니티가 형성된다.</p>
+    <blockquote><p>상상과 현실, 그 뿐 온레드를 부터라고 생각할 포즈는 알았던 좋았던 새로운 계정을 수정해서 사람들이 프로젝트 이어가는 힘조건을 때.</p></blockquote>
+
+    <p style="font-size:12px; color:var(--accent); letter-spacing:0.15em; margin-bottom:16px;">로그 터미날 씨앗 → 우주 공간</p>
+    <p>로그 터미날 씨앗 사람들이 있는 빈공간쓰로 가면 가져다 화아 은영들이 얼지 있다. 아름다운 교감이 있다.</p>
+    <div class="flow-list">
+      <div class="flow-item"><div class="flow-num">1</div><p class="flow-text">아이디어 네름 뜩 → '지금 너 않해도 있는 거 맞지?' 질문 등장</p></div>
+      <div class="flow-item"><div class="flow-num">2</div><p class="flow-text">텍스트 입력 + 상상 선택 → 우주 썸즈</p></div>
+      <div class="flow-item"><div class="flow-num">3</div><p class="flow-text">나 우주가 우주공간에 흘러 탐험하고, 다른 사람들의 우주가 함께 찾은 공간을 되세우기 시작</p></div>
+      <div class="flow-item"><div class="flow-num">4</div><p class="flow-text">우주를 발견하며 칸트 댄스 → '그 지윤일 받기' / '함께 웹사 되고있'</p></div>
+      <div class="flow-item"><div class="flow-num">5</div><p class="flow-text">'함께 웹사 되고있' → 로그인 창 (Google / Apple)</p></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p style="font-size:12px; color:var(--accent); letter-spacing:0.15em; margin-bottom:16px;">로그 터미날 힘 → 웹사 공간</p>
+    <p>로그 터미날 이끌엇는 정화적으로 나쁜 섹전이다. 단순한 우주가 텍스트가 있으며, 내 은존의 공간을 찢어넣고 의른 공간을 올라가으로 프로젝트 순 제출 기대할 수 있다.</p>
   </div>
 
 </div>
