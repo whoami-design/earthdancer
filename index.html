@@ -1,35 +1,215 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIPORA — Product Design Document</title>
-  <style>
-    body { 
-        background: #04030A; 
-        color: #EDE8FF; 
-        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-        padding: 40px;
-        text-align: center;
-    }
-    h1 { 
-        font-size: 48px; 
-        margin-bottom: 20px; 
-        color: #C084FC;
-    }
-    p { 
-        font-size: 18px; 
-        opacity: 0.7;
-    }
-    </style>
-  </head>
-  <body>
-    <h1>SIPORA</h1>
-  <p>상상이 현실이 되는 우주</p>
-  <p>Product Design Document</p>
-  <p>Loading complete content...</p>
-  </body>
-</html>html></p></p></h1>
-  </body>
-  </style></title>
-  </head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIPORA — Product Design Document</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #04030A;
+  --bg2: #0A0717;
+  --purple: #7C3AED;
+  --purple-light: #A78BFA;
+  --accent: #C084FC;
+  --pink: #EC4899;
+  --text: #EDE8FF;
+  --muted: rgba(237,232,255,0.35);
+  --border: rgba(167,139,250,0.1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+/* 배경 별 */
+#stars {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+}
+
+/* 네비게이션 */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(4,3,10,0.95), transparent);
+  backdrop-filter: blur(12px);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 300; letter-spacing: 0.3em;
+  color: var(--text); text-decoration: none;
+}
+.nav-version {
+  font-size: 10px; color: var(--muted); letter-spacing: 0.2em;
+}
+
+/* 메인 컨테이너 */
+.container {
+  position: relative; z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 120px 40px 120px;
+}
+
+/* 커버 */
+.cover {
+  text-align: center;
+  padding: 80px 0 100px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 80px;
+}
+.cover-eyebrow {
+  font-size: 10px; letter-spacing: 0.4em;
+  color: var(--muted); text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 8vw, 80px);
+  font-weight: 300; letter-spacing: 0.15em;
+  line-height: 1;
+  text-shadow: 0 0 80px rgba(124,58,237,0.4);
+  margin-bottom: 16px;
+}
+.cover-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-style: italic;
+  color: var(--accent); margin-bottom: 32px;
+}
+.cover-meta {
+  font-size: 11px; color: var(--muted);
+  letter-spacing: 0.15em;
+}
+
+/* 섹션 */
+.section {
+  margin-bottom: 80px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section.visible { opacity: 1; transform: translateY(0); }
+
+.section-num {
+  font-size: 10px; letter-spacing: 0.3em;
+  color: var(--accent); text-transform: uppercase;
+  margin-bottom: 12px; opacity: 0.7;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 300; font-style: italic;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 본문 */
+p {
+  font-size: 14px; font-weight: 300;
+  color: rgba(237,232,255,0.75);
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+/* 인용 */
+blockquote {
+  margin: 32px 0;
+  padding: 24px 28px;
+  border-left: 1px solid var(--accent);
+  background: rgba(192,132,252,0.04);
+  border-radius: 0 12px 12px 0;
+}
+blockquote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-style: italic;
+  color: var(--text); margin: 0;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .container { padding: 100px 24px 80px; }
+  nav { padding: 16px 24px; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<nav>
+  <a href="#" class="nav-logo">SIPORA</a>
+  <span class="nav-version">Product Design Doc · v0.1</span>
+</nav>
+
+<div class="container">
+  <div class="cover">
+    <div class="cover-eyebrow">우주 + 포자</div>
+    <div class="cover-title">SIPORA</div>
+    <div class="cover-sub">상상이 현실이 되는 우주</div>
+    <div class="cover-meta">Product Design Document · v0.1 · 2025</div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">01</div>
+    <div class="section-title">프로젝트 철학</div>
+    <blockquote><p>모든 상상은 실현될 수 있다. 현실과 같은 이상을 가졌으면서 더불어 실현 가능성을 지닌 상상이 구체적이다.</p></blockquote>
+    <p>Sipora는 단순한 플랫폼이 아니라 하나의 세계관이다. 사람들이 온라인 어디에서든 형성하려 했던 창의적 에너지가 새로운 방향으로 흘러갈 수 있게 하는 것 — 일자리, 갑질, 굶주림을 걱정하는 것보다, 에너지와 시간을 살아가는 데 투자하는 것. 그런 출구가 지금 필요하다고 생각한다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">02</div>
+    <div class="section-title">흐름 개요</div>
+    <p>사용자가 아이디어를 입력하고 우주로 떠나보내는 과정에서 자연스럽게 커뮤니티가 형성된다.</p>
+  </div>
+
+</div>
+
+<script>
+// 별 배경
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+
+const stars = Array.from({length: 140}, () => ({
+  x: Math.random(), y: Math.random(),
+  r: Math.random()*1.1+0.2,
+  o: Math.random()*0.3+0.05,
+  phase: Math.random()*Math.PI*2,
+  speed: Math.random()*0.0003+0.0001
+}));
+
+function loop(t) {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  stars.forEach(s => {
+    const op = s.o*(0.6+0.4*Math.sin(t*s.speed*1000+s.phase));
+    ctx.beginPath();
+    ctx.arc(s.x*canvas.width, s.y*canvas.height, s.r, 0, Math.PI*2);
+    ctx.fillStyle=`rgba(255,255,255,${op})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+// 스크롤 reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
